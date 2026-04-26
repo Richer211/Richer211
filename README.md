@@ -1,62 +1,70 @@
-# Hi, I'm Richer 👋  
+# Hi, I'm Gang Wang 👋
 
-**Solutions Engineer / Sales Engineer**  
-**Robotics · Computer Vision · GPU Acceleration**
+**Software Engineer | Python Backend | LLM Applications**
 
-I build **PoC-ready perception demos and deployable vision solutions** for robotics and autonomous driving, with a strong focus on **real-time performance, GPU acceleration, and solution feasibility**.
-
----
-
-## 🚀 What I Do (as a Solutions Engineer)
-
-I work at the intersection of **technology, product, and customers**, helping turn advanced perception algorithms into **deployable, testable, and sellable solutions**.
-
-- 🔍 **Customer requirement discovery**
-  - Translate business & system requirements into technical KPIs (latency, FPS, accuracy)
-- 🧠 **Solution design & technical proposals**
-  - Design perception pipelines with clear speed–accuracy trade-offs
-- 🧪 **Demo & PoC development**
-  - Build reproducible demos to validate feasibility on real hardware
-- ⚙️ **Performance analysis & optimization**
-  - Identify system bottlenecks (I/O, integration, GPU utilization)
-- 🤝 **Technical communication**
-  - Explain complex vision & GPU concepts to non-technical stakeholders
+I build production-oriented backend systems and AI applications with **Python, FastAPI, OpenAI APIs, Docker, CI/CD, and cloud deployment**. My recent work focuses on turning LLM prototypes into maintainable software products with authentication, persistence, source grounding, and deployment reliability.
 
 ---
 
-## 🚗 Featured Project
+## 🚀 What I Build
 
-### GPU-Accelerated Optical / Scene Flow for Real-Time Perception
+- **LLM-powered applications**: structured extraction, prompt workflows, RAG-style retrieval, source grounding, and human-in-the-loop review.
+- **Backend systems**: FastAPI services, REST APIs, authentication, persistence, observability, testing, and deployment automation.
+- **Production delivery**: Dockerized services, GitHub Actions CI, protected branch workflows, Vercel/Railway deployment, and cloud debugging.
+- **Robotics / computer vision systems**: optical flow, scene flow, GPU acceleration, and reproducible perception experiments.
 
-A **PoC-ready perception pipeline** designed for **robotics and autonomous driving**, focusing on **accuracy–latency trade-offs and deployment realism**.
+---
+
+## ⭐ Featured Projects
+
+### [Doc2Action AI Workspace](https://github.com/Richer211/DOC2ACTION)
+
+An **LLM-powered document-to-action workspace** that converts meeting notes, PRDs, and emails into structured outputs such as summaries, action items, risks, and open questions.
 
 **Highlights**
-- Demonstrated **significant accuracy gains** on KITTI (optical flow & scene flow)
-- Modular pipeline design suitable for **edge GPU deployment**
-- Clear optimization roadmap from research prototype to production system
+- Built a **FastAPI + Next.js** application using OpenAI-based extraction, rule-based fallback, semantic chunking, and source-grounded references.
+- Added **JWT login**, API key support, SQLite persistence, request logging, health checks, and editable review workflows.
+- Deployed the system with **Docker, Vercel, Railway, GitHub Actions CI, protected `main` branch, CORS configuration, and CI-gated backend deployments**.
+- Debugged real production issues including Railway Cron misuse, target-port routing, CORS origin mismatch, and environment-variable based authentication.
 
-🔗 **Project Repo:** [DeGraFFlowGPU](https://github.com/richer520/DeGraFFlowGPU)
+🔗 **Live App:** [doc-2-action.vercel.app](https://doc-2-action.vercel.app)  
+🔗 **API Docs:** [Railway Swagger UI](https://doc2action-production.up.railway.app/docs)
+
+### [DeGraF Flow GPU](https://github.com/Richer211/DegrafFlowGPU)
+
+A GPU-oriented optical / scene flow pipeline for robotics and autonomous driving perception, focused on accuracy-latency trade-offs and reproducible evaluation.
+
+**Highlights**
+- Implemented a modular C++ / OpenCV pipeline for sparse-to-dense optical flow and KITTI-style evaluation.
+- Reported measurable accuracy improvements from MSc dissertation experiments on KITTI 2015.
+- Packaged build and run workflows with CMake, Docker, and reproducible scripts.
+
+### [PuzzleBot Python Robotics](https://github.com/Richer211/puzzlebot_richer)
+
+A Python-based robotics development project for experimenting with robot control, simulation assets, GUI tooling, and hardware-oriented workflows.
 
 ---
 
-## 🧠 Technical Focus Areas
+## 🧠 Technical Focus
 
-- Computer Vision: Optical Flow, Scene Flow, Motion Estimation  
-- GPU Acceleration: CUDA, performance profiling, real-time constraints  
-- Robotics & Autonomous Systems: perception pipelines, temporal consistency  
-- Engineering: C++ / Python, OpenCV, Docker, reproducible experiments  
+- **Languages**: Python, C++, JavaScript / TypeScript
+- **Backend**: FastAPI, Django, REST APIs, async services, authentication, testing, API documentation
+- **AI / LLM**: OpenAI APIs, structured extraction, prompt design, RAG-style retrieval, semantic chunking, source grounding
+- **Cloud & DevOps**: Docker, GitHub Actions, CI/CD, Vercel, Railway, Linux, containerized deployment
+- **Data & Reliability**: SQLite, MySQL, Redis, request logging, health checks, observability, production debugging
+- **Computer Vision / Robotics**: OpenCV, optical flow, scene flow, GPU acceleration, perception pipelines
 
 ---
 
 ## 🎓 Background
 
-- 🎓 MSc Robotics & Computer Vision — **Durham University**
-- 📄 Research focus: **GPU-based perception for autonomous systems**
-- 🔬 Strong interest in bridging **research → PoC → product**
+- MSc Robotics & Computer Vision — **Durham University**
+- Research and project experience across **AI applications, backend engineering, robotics perception, and GPU-accelerated systems**
+- Interested in building reliable software that connects **AI models, user workflows, and production infrastructure**
 
 ---
 
-## 📫 Let’s Connect
+## 📫 Connect
 
-If you’re working on **robotics, autonomous driving, edge AI, or GPU-accelerated perception**,  
-I’m always happy to discuss **solutions, demos, and PoC opportunities**.
+- GitHub: [github.com/Richer211](https://github.com/Richer211)
+- LinkedIn: [linkedin.com/in/gang-wang-b42b462b6](https://linkedin.com/in/gang-wang-b42b462b6)
