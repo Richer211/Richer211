@@ -1,70 +1,72 @@
-# Hi, I'm Gang Wang 👋
+# Hi, I'm Gang Wang
 
-**Software Engineer | Python Backend | LLM Applications**
+**Software Engineer | Computer Vision | Robotics Perception**
 
-I build production-oriented backend systems and AI applications with **Python, FastAPI, OpenAI APIs, Docker, CI/CD, and cloud deployment**. My recent work focuses on turning LLM prototypes into maintainable software products with authentication, persistence, source grounding, and deployment reliability.
-
----
-
-## 🚀 What I Build
-
-- **LLM-powered applications**: structured extraction, prompt workflows, RAG-style retrieval, source grounding, and human-in-the-loop review.
-- **Backend systems**: FastAPI services, REST APIs, authentication, persistence, observability, testing, and deployment automation.
-- **Production delivery**: Dockerized services, GitHub Actions CI, protected branch workflows, Vercel/Railway deployment, and cloud debugging.
-- **Robotics / computer vision systems**: optical flow, scene flow, GPU acceleration, and reproducible perception experiments.
+I build perception software that runs on real sensors and robots, and the backend systems around it. Recent work covers GPU scene flow, RGB-D mapping on a mobile robot, and a kitchen system tied to live Square orders.
 
 ---
 
-## ⭐ Featured Projects
-
-### [Doc2Action AI Workspace](https://github.com/Richer211/DOC2ACTION)
-
-An **LLM-powered document-to-action workspace** that converts meeting notes, PRDs, and emails into structured outputs such as summaries, action items, risks, and open questions.
-
-**Highlights**
-- Built a **FastAPI + Next.js** application using OpenAI-based extraction, rule-based fallback, semantic chunking, and source-grounded references.
-- Added **JWT login**, API key support, SQLite persistence, request logging, health checks, and editable review workflows.
-- Deployed the system with **Docker, Vercel, Railway, GitHub Actions CI, protected `main` branch, CORS configuration, and CI-gated backend deployments**.
-- Debugged real production issues including Railway Cron misuse, target-port routing, CORS origin mismatch, and environment-variable based authentication.
-
-🔗 **Live App:** [doc-2-action.vercel.app](https://doc-2-action.vercel.app)  
-🔗 **API Docs:** [Railway Swagger UI](https://doc2action-production.up.railway.app/docs)
+## Featured Projects
 
 ### [DeGraF Flow GPU](https://github.com/Richer211/DegrafFlowGPU)
 
-A GPU-oriented optical / scene flow pipeline for robotics and autonomous driving perception, focused on accuracy-latency trade-offs and reproducible evaluation.
+GPU sparse-to-dense scene flow for a real conveyor, built from a CUDA DeGraF detector, RAFT, and InterpoNet.
 
 **Highlights**
-- Implemented a modular C++ / OpenCV pipeline for sparse-to-dense optical flow and KITTI-style evaluation.
-- Reported measurable accuracy improvements from MSc dissertation experiments on KITTI 2015.
-- Packaged build and run workflows with CMake, Docker, and reproducible scripts.
+- Export RAFT and InterpoNet to ONNX and run them with TensorRT inside a C++ process, with CUDA feature extraction in the same binary.
+- On KITTI 2015, optical-flow EPE dropped from 3.23 to 2.64, and scene-flow EPE3D from 0.257 m to 0.160 m.
+- RealSense D435i on a fixed-speed belt: live status on CPU, offline scene flow on GPU, one shared IDLE/MOVING view. Empty belt stays IDLE; an object stays MOVING on the belt and returns to IDLE about 0.4 s after it drops into the bin.
 
-### [PuzzleBot Python Robotics](https://github.com/Richer211/puzzlebot_richer)
+### [PuzzleBot RGB-D SLAM](https://github.com/Richer211/puzzlebot-rgbd-slam)
 
-A Python-based robotics development project for experimenting with robot control, simulation assets, GUI tooling, and hardware-oriented workflows.
+Monocular visual odometry and offline RGB-D SLAM on a PuzzleBot with a RealSense D435i and a Jetson Nano 2GB.
+
+**Highlights**
+- Monocular pipeline in Python and OpenCV: Zhang calibration at about 0.32 px reprojection error, FAST and Lucas–Kanade tracking, RANSAC pose recovery. Tested on KITTI and on indoor robot video with turns, fast motion, and low texture.
+- Capture on the Nano at 640×480 / 15 FPS. A converter writes depth-aligned ROS 2 bags. RTAB-Map runs in a fixed ROS 2 Humble Docker image.
+- Two indoor maps: 44 nodes from a 44-second handheld pass (610 aligned frames), and 26 nodes from a 30-second on-robot drive. Mapping stays on the host because 2GB cannot hold the live pipeline.
+
+### [Restaurant Kitchen Pass](https://github.com/Richer211/restaurant-kitchen-pass)
+
+Kitchen pass for a real restaurant. Square orders land on a shared pickup list; waiters mark dishes taken on the pass screen.
+
+**Highlights**
+- Square OAuth and order sync by Square id, including incremental pulls, merges, cancellations, and business filters.
+- Dish state is stored in SQLite and pushed to the ops page and the pass screen. Paid Square tickets are closed on sync so finished orders leave the active board.
+- Ran the loop in the restaurant: Square ticket, kitchen, pickup, waiter collection.
+
+### [Doc2Action AI Workspace](https://github.com/Richer211/DOC2ACTION)
+
+LLM workspace that turns meeting notes, PRDs, and emails into summaries, action items, risks, and open questions.
+
+**Highlights**
+- FastAPI and Next.js, with OpenAI extraction, a rule-based fallback, semantic chunking, and source-grounded references.
+- JWT login, API key support, SQLite, request logging, health checks, and an editable review step.
+- Deployed with Docker, Vercel, Railway, and GitHub Actions. CI gates the backend deploy.
+
+**Live app:** [doc-2-action.vercel.app](https://doc-2-action.vercel.app)  
+**API docs:** [Railway Swagger UI](https://doc2action-production.up.railway.app/docs)
 
 ---
 
-## 🧠 Technical Focus
+## Technical Focus
 
-- **Languages**: Python, C++, JavaScript / TypeScript
-- **Backend**: FastAPI, Django, REST APIs, async services, authentication, testing, API documentation
-- **AI / LLM**: OpenAI APIs, structured extraction, prompt design, RAG-style retrieval, semantic chunking, source grounding
-- **Cloud & DevOps**: Docker, GitHub Actions, CI/CD, Vercel, Railway, Linux, containerized deployment
-- **Data & Reliability**: SQLite, MySQL, Redis, request logging, health checks, observability, production debugging
-- **Computer Vision / Robotics**: OpenCV, optical flow, scene flow, GPU acceleration, perception pipelines
-
----
-
-## 🎓 Background
-
-- MSc Robotics & Computer Vision — **Durham University**
-- Research and project experience across **AI applications, backend engineering, robotics perception, and GPU-accelerated systems**
-- Interested in building reliable software that connects **AI models, user workflows, and production infrastructure**
+- **Languages:** Python, C++, JavaScript / TypeScript
+- **Perception:** OpenCV, camera calibration, visual odometry, RGB-D SLAM (RTAB-Map), RealSense D435i, ROS 2, Jetson Nano, scene flow, RAFT, InterpoNet
+- **Inference:** CUDA, ONNX, TensorRT, Docker
+- **Backend:** FastAPI, REST APIs, SQLite, MySQL, Redis, WebSocket, JWT
+- **Delivery:** Docker, GitHub Actions, Linux, Vercel, Railway
 
 ---
 
-## 📫 Connect
+## Background
+
+- MSc Scientific Computing and Data Analysis (Computer Vision and Robotics), Distinction — Durham University
+- Backend and platform work on SaaS and private-cloud systems before the MSc
+
+---
+
+## Connect
 
 - GitHub: [github.com/Richer211](https://github.com/Richer211)
 - LinkedIn: [linkedin.com/in/gang-wang-b42b462b6](https://linkedin.com/in/gang-wang-b42b462b6)
